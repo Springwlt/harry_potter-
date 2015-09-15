@@ -1,4 +1,5 @@
 var loadAllBooks = require("../../spec/fixtures.js");
+
 function Book(barcode, unit, price) {
     this.barcode = barcode;
     this.unit = unit;

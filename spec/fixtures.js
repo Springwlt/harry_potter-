@@ -1,4 +1,5 @@
 var Book = require("../src/model/book.js");
+
 function loadAllBooks() {
     return [
         new Book('ITEM000001', '本', 8.00),
