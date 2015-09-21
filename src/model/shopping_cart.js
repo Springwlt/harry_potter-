@@ -43,6 +43,7 @@ ShoppingCart.bestGgoup = function(group) {
                         }
                         if (!exist) {
                             group[k].push(group[key][i]);
+                            group[key].splice(i, 1);
                             break;
                         }
                     }
@@ -50,7 +51,6 @@ ShoppingCart.bestGgoup = function(group) {
             }
         }
     }
-    //console.log(group);
     return group;
 }
 ShoppingCart.totalPrice = function(group) {
