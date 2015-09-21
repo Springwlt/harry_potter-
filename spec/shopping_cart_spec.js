@@ -1,11 +1,9 @@
 'use strict';
 
-var ShoppingCart = require('../src/model/shopping_cart.js');
-
+var Settlement = require('../src/main.js');
 describe('test shoppingCart get books', function() {
     it('', function() {
-
-        var result = ShoppingCart();
-        expect(result).toEqual("collection_b");
+        var result = Settlement();
+        expect(result).toEqual("1,2,3,4");
     });
 });
