@@ -57,18 +57,14 @@ ShoppingCart.totalPrice = function(group) {
     var sum = 0;
     for (var key in group) {
         if (group[key].length === 5) {
-            sum += 8 * 0.25;
-        }
-        if (group[key].length === 4) {
-            sum += 8 * 0.20;
-        }
-        if (group[key].length === 3) {
-            sum += 8 * 0.10;
-        }
-        if (group[key].length === 2) {
-            sum += 8 * 0.05;
-        }
-        if (group[key].length === 1) {
+            sum += 5 * 8 * (1 - 0.25);
+        } else if (group[key].length === 4) {
+            sum += 4 * 8 * (1 - 0.20);
+        } else if (group[key].length === 3) {
+            sum += 3 * 8 * (1 - 0.10);
+        } else if (group[key].length === 2) {
+            sum += 2 * 8 * (1 - 0.05);
+        } else if (group[key].length === 1) {
             sum += 8 * 1;
         }
     }
