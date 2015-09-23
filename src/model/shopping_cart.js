@@ -1,4 +1,3 @@
-var ShoppingCart = require("../../spec/fixtures.js");
 var _ = require("../tools/lodash.js");
 
 function ShoppingCart() {
