@@ -17,11 +17,13 @@ ShoppingCart.Grouping = function(speciesGroup) {
 
     for (var key in speciesGroup) {
         var count = 0;
+
         for (var i = 0; i < speciesGroup[key]; i++) {
             group[groupStr + count] = group[groupStr + count] || [];
             group[groupStr + count].push(key);
             count++;
         }
+
     }
     return group;
 }
@@ -51,19 +53,16 @@ ShoppingCart.bestGgoup = function(group) {
 }
 ShoppingCart.totalPrice = function(group) {
     var sum = 0;
+    var discount = [0, 0.05, 0.10, 0.20, 0.25];
+
     for (var key in group) {
-        if (group[key].length === 5) {
-            sum += 5 * 8 * (1 - 0.25);
-        } else if (group[key].length === 4) {
-            sum += 4 * 8 * (1 - 0.20);
-        } else if (group[key].length === 3) {
-            sum += 3 * 8 * (1 - 0.10);
-        } else if (group[key].length === 2) {
-            sum += 2 * 8 * (1 - 0.05);
-        } else if (group[key].length === 1) {
-            sum += 8 * 1;
+        for (var i = 0; i < discount.length; i++) {
+            if (group[key].length === i + 1) {
+                sum += (i + 1) * 8 * (1 - discount[i])
+            }
         }
     }
+
     return sum;
 }
 module.exports = ShoppingCart;
