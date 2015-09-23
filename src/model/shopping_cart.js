@@ -1,26 +1,23 @@
-var _ = require("../tools/lodash.js");
-
 function ShoppingCart() {
 
 }
-ShoppingCart.getSpeciesGroup = function(barcode) {
+ShoppingCart.getSpeciesGroup = function(barcodeArray) {
     var speciesGroup = {};
 
-    _(barcode).each(function(n, i) {
-        speciesGroup[n] = speciesGroup[n] || 0;
-        speciesGroup[n]++;
+    barcodeArray.forEach(function(barcode,j){
+        speciesGroup[barcode] = speciesGroup[barcode] || 0;
+        speciesGroup[barcode]++;
     });
+
     return speciesGroup;
 }
 ShoppingCart.Grouping = function(speciesGroup) {
-    var length = 0;
     var groupStr = "group";
     var group = {};
 
     for (var key in speciesGroup) {
         var count = 0;
-        length = speciesGroup[key];
-        for (var i = 0; i < length; i++) {
+        for (var i = 0; i < speciesGroup[key]; i++) {
             group[groupStr + count] = group[groupStr + count] || [];
             group[groupStr + count].push(key);
             count++;
